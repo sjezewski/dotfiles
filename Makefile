@@ -4,21 +4,28 @@ all:
 	ln tmux/.tmux.conf ~/.tmux.conf
 
 nvim:
+	# Need vim > 7.3.5 w lua to use neocomplete
+	brew install vim --with-lua
+	# lua not supported yet in neovim
+
+	# Setup config folders / vundler
 	mkdir -p ~/.config
 	mkdir -p ~/.vim/bundle
-	mkdir -p ~/.vim
-
-	# Hook dotfile -> vim -> nvim
-	ln -s ~/.vim ~/.config/nvim
-	ln -s vim/.vimrc ~/.vimrc
-	ln -s ~/.vimrc ~/.config/nvim/init.vim
-#	ln -s ~/.vimrc ~/.vim/init.vim
-
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	nvim +BundleInstall +qall
+
 	# To get the go parser:
 	go get -u github.com/jstemmer/gotags
 	brew install ctags
+
+	# Setup nvim directory
+	ln -s ~/.vim ~/.config/nvim
+
+	# Hook dotfile -> vim -> nvim
+	ln -s $(PWD)/vim/.vimrc ~/.vimrc
+	ln -s ~/.vimrc ~/.config/nvim/init.vim
+
+	nvim +BundleInstall +qall
+	#nvim +GoInstallBinaries
 
 nvim-clean:
 	rm -rf ~/.config/nvim || echo "DNE"

@@ -17,6 +17,8 @@ Bundle 'johnsyweb/vim-makeshift.git'
 Bundle 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/neocomplete.vim'
+Bundle 'majutsushi/tagbar'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -138,3 +140,37 @@ filetype plugin indent on
 syntax on
 
 au FileType go nmap <leader>t <Plug>(go-test)
+
+
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+nmap <M-CR> :TagbarToggle<CR>
+
+" neocomplete needs lua, which needs vim > 7.3.5, and neovim doesnt support lua yet
+let g:neocomplete#enable_at_startup = 1
