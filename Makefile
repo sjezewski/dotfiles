@@ -44,6 +44,7 @@ pachyderm:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
 	chmod +x kubectl
 	mv kubectl /usr/local/bin/
+	sudo apt-get install gcc
 
 docker:
 	sudo apt-get update
@@ -56,5 +57,14 @@ gcloud:
 	sudo /google_cloud_sdk/install.sh
 	source $HOME/.bash_profile
 	sudo gcloud init
+
+osx:
+	# Setup docker rsync
+	brew tap synack/docker
+	brew install docker-rsync
+
+	cd $$GOPATH/src/github.com/pachyderm/pachyder
+	echo ".git" >> .rsyncignore
+	docker-rsync dev
 
 .PHONY: docker-machine pachyderm

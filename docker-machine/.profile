@@ -1,4 +1,5 @@
 export PATH=/usr/local/go/bin:$PATH
+export PATH=$PATH:$GOPATH/bin
 export GOPATH=$HOME/go
 
 # The next line updates PATH for the Google Cloud SDK.
