@@ -1,6 +1,9 @@
+" Other source to look into: https://github.com/spf13/spf13-vim
+
 set nocompatible               " be iMproved
 filetype off                   " required
 
+set clipboard=unnamed
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -174,3 +177,9 @@ nmap <M-CR> :TagbarToggle<CR>
 
 " neocomplete needs lua, which needs vim > 7.3.5, and neovim doesnt support lua yet
 let g:neocomplete#enable_at_startup = 1
+
+map <Esc><Esc> :w<CR>
+
+map <C-[> :tabp
+map <C-]> :tabn
+
