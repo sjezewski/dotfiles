@@ -54,7 +54,7 @@ gcloud:
 	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$(GCLOUD_PKG).tar.gz
 	sudo tar -xvf $(GCLOUD_PKG).tar.gz
 	sudo /google_cloud_sdk/install.sh
-	gcloud init
-
+	source $HOME/.bash_profile
+	sudo gcloud init
 
 .PHONY: docker-machine pachyderm
