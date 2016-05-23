@@ -1,3 +1,5 @@
+GCLOUD_PKG = google-cloud-sdk-110.0.0-linux-x86_64
+
 all:
 	ln zsh/.zshrc ~/.zshrc
 	ln git/.gitconfig ~/.gitconfig
@@ -18,7 +20,7 @@ nvim:
 	nvim +BundleInstall +qall
 	# To get the go parser:
 	go get -u github.com/jstemmer/gotags
-	brew install ctags
+	# brew install ctags # This should be redundant bcz of line above
 
 nvim-clean:
 	rm -rf ~/.config/nvim || echo "DNE"
@@ -26,3 +28,33 @@ nvim-clean:
 	rm ~/.vimrc || echo "DNE"
 	rm -rf $GOPATH/src/github.com/jstemmer/gotags || echo "DNE"
 	brew uninstall ctags || echo "DNE"
+
+docker-machine:
+	sudo apt-get install software-properties-common
+	sudo add-apt-repository ppa:neovim-ppa/unstable
+	sudo apt-get update
+	sudo apt-get -y upgrade
+	sudo apt-get install neovim
+	sudo curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+	sudo tar -xvf go1.6.linux-amd64.tar.gz
+	sudo mv go /usr/local
+	cp docker-machine/.profile $$HOME/.bash_profile
+
+pachyderm:
+	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
+	chmod +x kubectl
+	mv kubectl /usr/local/bin/
+
+docker:
+	sudo apt-get update
+	sudo apt-get install docker-engine
+	sudo docker run hello-world
+
+gcloud:
+	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$(GCLOUD_PKG).tar.gz
+	sudo tar -xvf $(GCLOUD_PKG).tar.gz
+	sudo /google_cloud_sdk/install.sh
+	gcloud init
+
+
+.PHONY: docker-machine pachyderm
