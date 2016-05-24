@@ -67,12 +67,16 @@ gcloud:
 	source $HOME/.bash_profile
 	sudo gcloud init
 
-osx:
+osx: osx-install-syncer osx-sync
+
+osx-install-syncer:
 	# Setup docker rsync
 	brew tap synack/docker
 	brew install docker-rsync
 
-	cd $$GOPATH/src/github.com/pachyderm/pachyder
+osx-sync:
+	# Go to pachyderm repo and sync
+	cd $$GOPATH/src/github.com/pachyderm/pachyderm
 	echo ".git" >> .rsyncignore
 	docker-rsync dev
 
