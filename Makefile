@@ -51,7 +51,7 @@ docker-machine:
 	sudo curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > dm
 	sudo mv dm /usr/local/bin/docker-machine
 	sudo chmod +x /usr/local/bin/docker-machine
-
+	sudo usermod -aG docker `whoami`
 pachyderm:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
 	chmod +x kubectl
