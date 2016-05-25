@@ -17,8 +17,8 @@ alias klog="$HOME/dotfiles/scripts/kubetail"
 alias ci="travis_build.rb | xargs open $1"
 alias ci-latest="travis_build.rb latest | xargs open $1"
 
-source $HOME/dotfiles/profile/.functions.sh
 source $PSRC/contributing/bash_helpers
+source $HOME/dotfiles/profile/.functions.sh
 
 init_docker_machine
 ctx sean-dev
