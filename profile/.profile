@@ -20,12 +20,9 @@ alias ci-latest="travis_build.rb latest | xargs open $1"
 source $PSRC/contributing/bash_helpers
 source $HOME/dotfiles/profile/.functions.sh
 
+alias dm="docker-machine ssh dev"
+
 init_docker_machine
 ctx sean-dev
-
-
-
-
-
 
 
