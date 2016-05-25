@@ -46,6 +46,7 @@ docker-machine:
 	sudo apt-get install neovim
 	sudo curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 	sudo tar -xvf go1.6.linux-amd64.tar.gz
+	sudo rm -rf /usr/local/go
 	sudo mv go /usr/local
 	curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
 	chmod +x /usr/local/bin/docker-machine
