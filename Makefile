@@ -48,7 +48,8 @@ docker-machine:
 	sudo tar -xvf go1.6.linux-amd64.tar.gz
 	sudo rm -rf /usr/local/go
 	sudo mv go /usr/local
-	sudo curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
+	sudo curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > dm
+	sudo mv dm /usr/local/bin/docker-machine
 	sudo chmod +x /usr/local/bin/docker-machine
 
 pachyderm:
