@@ -75,7 +75,6 @@ install-shell:
 	@source $$HOME/.bash_profile
 
 osx-client:
-	bash -i -c "source $$HOME/.bash_profile && sync_docker_machine $$HOME/.docker $$HOME/.docker"
-
+	bash -i -c "source $$HOME/.bash_profile && sync_docker_machine $$HOME/.docker $$DOCKER_MACHINE_HOME/"
 
 .PHONY: docker-machine pachyderm
