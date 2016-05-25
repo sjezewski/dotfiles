@@ -48,8 +48,8 @@ docker-machine:
 	sudo tar -xvf go1.6.linux-amd64.tar.gz
 	sudo rm -rf /usr/local/go
 	sudo mv go /usr/local
-	curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
-	chmod +x /usr/local/bin/docker-machine
+	sudo curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
+	sudo chmod +x /usr/local/bin/docker-machine
 
 pachyderm:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
