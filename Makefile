@@ -47,7 +47,7 @@ docker-machine:
 	sudo curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 	sudo tar -xvf go1.6.linux-amd64.tar.gz
 	sudo mv go /usr/local
-	cp docker-machine/.profile $$HOME/.bash_profile
+	cp profile/.profile $$HOME/.bash_profile
 
 pachyderm:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
@@ -67,17 +67,9 @@ gcloud:
 	source $HOME/.bash_profile
 	sudo gcloud init
 
-osx: osx-install-syncer osx-sync
+osx-client:
+	rsync 
 
-osx-install-syncer:
-	# Setup docker rsync
-	brew tap synack/docker
-	brew install docker-rsync
 
-osx-sync:
-	# Go to pachyderm repo and sync
-	cd $$GOPATH/src/github.com/pachyderm/pachyderm
-	echo ".git" >> .rsyncignore
-	docker-rsync dev
 
 .PHONY: docker-machine pachyderm
