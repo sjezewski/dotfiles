@@ -1,4 +1,3 @@
-SHELL := /bin/bash
 GCLOUD_PKG = google-cloud-sdk-110.0.0-linux-x86_64
 
 all:
@@ -70,13 +69,13 @@ gcloud:
 install-shell:
 	@rm ~/.bash_profile
 	@echo "source $$HOME/dotfiles/profile/.profile" >> ~/.bash_profile
-	@if [ $$(uname -a | cut -f 1 -d ' ') == "Darwin" ]; then \
+	@if [ $$(uname -a | cut -f 1 -d " ") == "Darwin" ]; then \
 		echo "source $$HOME/dotfiles/profile/.osx.sh" >> ~/.bash_profile; \
 	fi
 	@source $$HOME/.bash_profile
 
 osx-client:
-	bash -i -c sync_docker_machine $$HOME/.docker $$HOME/.docker	
+	bash -i -c "source $$HOME/.bash_profile && sync_docker_machine $$HOME/.docker $$HOME/.docker"
 
 
 .PHONY: docker-machine pachyderm
