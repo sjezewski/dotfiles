@@ -4,6 +4,16 @@ set nocompatible               " be iMproved
 filetype off                   " required
 
 set clipboard=unnamed
+
+set shell=bash\ --login
+" Use the following line to rsync to dm on save
+" ... its not that fast and seems to block,
+" so I'll put it behind a hotkey instead
+"
+"autocmd BufWritePost * execute '!dev_sync_docker_from_client'
+
+map <C-K> :!dev_sync_docker_from_client
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
