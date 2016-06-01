@@ -80,7 +80,7 @@ install-shell:
 	fi
 	@source $$HOME/.bash_profile
 
-osx-client:
+osx-client: install-shell
 	bash -i -c "source $$HOME/.bash_profile && sync_docker_machine $$HOME/.docker $$DOCKER_MACHINE_HOME/"
 
 .PHONY: docker-machine pachyderm

@@ -11,6 +11,15 @@ function sync_docker_machine() {
 	sudo rsync $RSYNC_FLAGS -e "$SSH_COMMAND" $1 docker-user@$DOCKER_MACHINE_IP:$2
 }
 
+function dev_sync_docker_from_client() {
+    if [ "$IDENTITY" == "client" ]
+    then
+        dev_sync_docker
+    else
+        echo "Can only sync from mac client -> docker machine"
+    fi
+}
+
 function dev_sync_docker() {
 	sync_docker_machine $PACHYDERM_SRC $REMOTE_PACHYDERM_SRC_DIR
 }
