@@ -7,6 +7,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export GOROOT="/usr/local/go"
 export PFX=github.com/pachyderm/pachyderm
 export PSRC="$GOPATH/src/$PFX"
+export IDENTITY="docker-server" # In the osx.sh file, set this to 'client'
 
 alias reinit="source $HOME/.bash_profile"
 alias profile="emacs $HOME/dotfiles/profile/.profile"
