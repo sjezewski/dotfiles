@@ -52,6 +52,7 @@ docker-machine:
 	sudo mv dm /usr/local/bin/docker-machine
 	sudo chmod +x /usr/local/bin/docker-machine
 	sudo usermod -aG docker `whoami`
+	sudo echo 'user_allow_other' > /etc/fuse.conf
 pachyderm:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
 	chmod +x kubectl
