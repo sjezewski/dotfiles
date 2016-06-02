@@ -21,7 +21,7 @@ function sync_docker_machine() {
 }
 
 function dev_sync_docker_from_client() {
-    if [ "$IDENTITY" == "client" ]
+    if [ "$(identity)" == "client" ]
     then
         dev_sync_docker
     else
