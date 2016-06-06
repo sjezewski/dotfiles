@@ -5,9 +5,10 @@ filetype off                   " required
 
 set clipboard=unnamed
 
-autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
+" Prob set filter to suffix w go
+"autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
 
-map <C-K> :!bash --login dev_sync_docker_from_client
+map <C-K> :!$HOME/dotfiles/scripts/dm-rsync.sh
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
