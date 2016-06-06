@@ -5,12 +5,7 @@ filetype off                   " required
 
 set clipboard=unnamed
 
-" set shell=bash\ --login
-" Use the following line to rsync to dm on save
-" ... its not that fast and seems to block,
-" so I'll put it behind a hotkey instead
-"
-"autocmd BufWritePost * execute '!dev_sync_docker_from_client'
+autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
 
 map <C-K> :!bash --login dev_sync_docker_from_client
 
