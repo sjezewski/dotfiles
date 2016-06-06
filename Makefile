@@ -77,6 +77,8 @@ install-shell:
 	@echo "source $$HOME/dotfiles/profile/.profile" >> ~/.bash_profile
 	@if [ $$(uname -a | cut -f 1 -d " ") == "Darwin" ]; then \
 		echo "source $$HOME/dotfiles/profile/.osx.sh" >> ~/.bash_profile; \
+	else \
+		echo "source $$HOME/dotfiles/profile/.linux.sh" >> ~/.bash_profile; \
 	fi
 	@source $$HOME/.bash_profile
 
