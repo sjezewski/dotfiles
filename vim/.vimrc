@@ -9,6 +9,7 @@ set clipboard=unnamed
 "autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
 
 map <C-K> :!$HOME/dotfiles/scripts/dm-rsync.sh
+map <C-I> :GoImport
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -38,7 +39,7 @@ Bundle 'fatih/vim-go'
 call vundle#end()            " required
 filetype plugin indent on    " required!
 
-colors delek
+colors pablo
 let mapleader = ","
 set nu!
 set cin!
