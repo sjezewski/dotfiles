@@ -53,12 +53,23 @@ docker-machine:
 	sudo chmod +x /usr/local/bin/docker-machine
 	sudo usermod -aG docker `whoami`
 	sudo echo 'user_allow_other' >> /etc/fuse.conf
+	@# Upgrade file limits - needed for pfs server tests
+	sudo echo '* soft nofile 20100' >> /etc/security/limits.conf
+	sudo echo '* hard nofile 20100' >> /etc/security/limits.conf
+	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session
+	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session-noninteractive
 
-pachyderm:
+
+pachyderm-linux:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
 	chmod +x kubectl
 	mv kubectl /usr/local/bin/
 	sudo apt-get install gcc
+
+pachyderm-mac:
+	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/darwin/amd64/kubectl
+	chmod +x kubectl
+	mv kubectl /usr/local/bin
 
 docker:
 	sudo apt-get update
