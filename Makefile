@@ -58,7 +58,7 @@ docker-machine:
 	sudo echo '* hard nofile 20100' >> /etc/security/limits.conf
 	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session
 	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session-noninteractive
-
+	sudo apt-get install python-pip
 
 pachyderm-linux:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
