@@ -1,4 +1,5 @@
 GCLOUD_PKG = google-cloud-sdk-110.0.0-linux-x86_64
+SHELL := /bin/bash
 
 all:
 	ln zsh/.zshrc ~/.zshrc
