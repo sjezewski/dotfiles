@@ -9,7 +9,7 @@ set clipboard=unnamed
 "autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
 
 map <C-K> :!$HOME/dotfiles/scripts/dm-rsync.sh
-map <C-I> :GoImport
+map <C-0> :GoImport
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -183,10 +183,11 @@ let g:tagbar_type_go = {
 nmap <M-CR> :TagbarToggle<CR>
 
 " neocomplete needs lua, which needs vim > 7.3.5, and neovim doesnt support lua yet
-let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_at_startup = 1
 
-map <Esc><Esc> :w<CR>
+map <C><CR> :w<CR>
 
 map <C-[> :tabp
 map <C-]> :tabn
 
+set ic
