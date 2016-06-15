@@ -1,3 +1,7 @@
+function ssh_pod() {
+    kubectl exec -ti $1 bash
+}
+
 function identity() {
 
 	if [ $(uname -a | cut -f 1 -d " ") == "Darwin" ]; then

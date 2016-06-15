@@ -92,6 +92,7 @@ install-shell:
 	else \
 		echo "source $$HOME/dotfiles/profile/.linux.sh" >> ~/.bash_profile; \
 	fi
+	@echo "source $(HOME)/.rvm/scripts/rvm" >> ~/.bash_profile
 	@source $$HOME/.bash_profile
 
 osx-client: install-shell
