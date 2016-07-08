@@ -60,6 +60,11 @@ docker-machine:
 	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session
 	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session-noninteractive
 	sudo apt-get install python-pip
+	@# Install s3cmd for pachyderm www site deployment
+	sudo apt-get -y install python-setuptools
+	wget http://netix.dl.sourceforge.net/project/s3tools/s3cmd/1.6.0/s3cmd-1.6.0.tar.gz
+	tar xvfz s3cmd-1.6.0.tar.gz
+	cd s3cmd-1.6.0 && sudo python setup.py install
 
 pachyderm-linux:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
