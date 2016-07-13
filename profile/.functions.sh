@@ -77,7 +77,7 @@ function assasinate() {
 }
 
 function cc() {
-    echo !! | pbcopy
+    echo "!!" | pbcopy
 }
 
 alias sandboxportforwarding="sudo docker-machine ssh dev -fTNL 650:localhost:30650"
