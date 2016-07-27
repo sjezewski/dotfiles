@@ -94,3 +94,16 @@ function duration() {
     echo $(( $ENDTIME - $STARTTIME ))
 }
 
+function rethink-ui() {
+    # The local admin port is set in the kube manifest around:
+    # "spec": {
+    #    "ports": [
+    #      {
+    #        "name": "admin-port",
+    #        "port": 8080,
+    #        "targetPort": 0,
+    #        "nodePort": 32080
+    #      },
+    docker-machine ssh dev -fTNL 9989:localhost:32080
+    open http://localhost:9989
+}
