@@ -107,3 +107,10 @@ function rethink-ui() {
     docker-machine ssh dev -fTNL 9989:localhost:32080
     open http://localhost:9989
 }
+
+
+function grep-code() {
+    grep -R "$1" ./src/* | grep -v "vendor" | grep -v "~" | grep -v "#"
+}
+
+alias gc="grep-code"

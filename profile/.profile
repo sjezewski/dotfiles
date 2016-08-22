@@ -1,3 +1,5 @@
+export PS1="\[\033[38;5;70m\]\W\[$(tput sgr0)\]\[\033[38;5;237m\]:\[$(tput sgr0)\]\[\033[38;5;203m\]\$?\[$(tput sgr0)\]\[\033[38;5;237m\]\\$\[$(tput sgr0)\]"
+
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export GOPATH=$HOME/go
@@ -20,8 +22,8 @@ alias ci="travis_build.rb | xargs open $1"
 alias ci-latest="travis_build.rb latest | xargs open $1"
 alias dms="$HOME/dotfiles/scripts/dm-rsync.sh"
 
-source $PSRC/contributing/bash_helpers
 source $HOME/dotfiles/profile/.functions.sh
+source $HOME/dotfiles/profile/pachyderm.sh
 
 alias dm="docker-machine ssh dev"
 
