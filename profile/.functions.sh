@@ -113,4 +113,4 @@ function grep-code() {
     grep -R "$1" ./src/* | grep -v "vendor" | grep -v "~" | grep -v "#"
 }
 
-alias gc="grep-code"
+alias s="grep-code"

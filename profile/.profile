@@ -12,12 +12,10 @@ export PSRC="$GOPATH/src/$PFX"
 export IDENTITY="docker-server" # In the osx.sh file, set this to 'client'
 
 alias reinit="source $HOME/.bash_profile"
-alias profile="emacs $HOME/dotfiles/profile/.profile"
+alias profile="nvim $HOME/dotfiles/profile/.profile"
 alias p="cd $PSRC"
 alias c="clear"
-alias kc="kubectl"
 alias klog="$HOME/dotfiles/scripts/kubetail"
-alias pc="pachctl"
 alias ci="travis_build.rb | xargs open $1"
 alias ci-latest="travis_build.rb latest | xargs open $1"
 alias dms="$HOME/dotfiles/scripts/dm-rsync.sh"
@@ -28,6 +26,5 @@ source $HOME/dotfiles/profile/pachyderm.sh
 alias dm="docker-machine ssh dev"
 
 init_docker_machine
-ctx sean-dev
 
-
+source $HOME/dotfiles/ext_scripts/context/context.sh

@@ -99,6 +99,8 @@ install-shell:
 	fi
 	@echo "source $(HOME)/.rvm/scripts/rvm" >> ~/.bash_profile
 	@source $$HOME/.bash_profile
+	mkdir ext_scripts
+	cd ext_scripts && git clone git@github.com:sjezewski/context
 
 osx-client: install-shell
 	brew install ssh-copy-id
