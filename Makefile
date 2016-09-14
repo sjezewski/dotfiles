@@ -67,13 +67,13 @@ docker-machine:
 	cd s3cmd-1.6.0 && sudo python setup.py install
 
 pachyderm-linux:
-	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/linux/amd64/kubectl
+	wget https://storage.googleapis.com/kubernetes-release/release/v1.3.4/bin/linux/amd64/kubectl
 	chmod +x kubectl
 	mv kubectl /usr/local/bin/
 	sudo apt-get install gcc
 
 pachyderm-mac:
-	wget https://storage.googleapis.com/kubernetes-release/release/v1.2.2/bin/darwin/amd64/kubectl
+	wget https://storage.googleapis.com/kubernetes-release/release/v1.3.4/bin/darwin/amd64/kubectl
 	chmod +x kubectl
 	mv kubectl /usr/local/bin
 
@@ -86,7 +86,7 @@ gcloud:
 	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$(GCLOUD_PKG).tar.gz
 	sudo tar -xvf $(GCLOUD_PKG).tar.gz
 	sudo /google_cloud_sdk/install.sh
-	source $HOME/.bash_profile
+	source $$HOME/.bash_profile
 	sudo gcloud init
 
 install-shell:
