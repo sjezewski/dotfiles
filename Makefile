@@ -59,6 +59,8 @@ docker-machine:
 	sudo chown docker-user /etc/security/limits.conf
 	sudo echo '* soft nofile 20100' >> /etc/security/limits.conf
 	sudo echo '* hard nofile 20100' >> /etc/security/limits.conf
+	sudo chown docker-user /etc/pam.d/common-session
+	sudo chown docker-user /etc/pam.d/common-session-noninteractive
 	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session
 	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session-noninteractive
 	sudo apt-get install python-pip
