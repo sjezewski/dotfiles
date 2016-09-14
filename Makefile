@@ -53,6 +53,7 @@ docker-machine:
 	sudo mv dm /usr/local/bin/docker-machine
 	sudo chmod +x /usr/local/bin/docker-machine
 	sudo usermod -aG docker `whoami`
+	sudo chown docker-user /etc/fuse.conf
 	sudo echo 'user_allow_other' >> /etc/fuse.conf
 	@# Upgrade file limits - needed for pfs server tests
 	sudo echo '* soft nofile 20100' >> /etc/security/limits.conf
