@@ -23,8 +23,10 @@ alias dms="$HOME/dotfiles/scripts/dm-rsync.sh"
 source $HOME/dotfiles/profile/.functions.sh
 source $HOME/dotfiles/profile/pachyderm.sh
 
-alias dm="docker-machine ssh dev"
+DOCKER_MACHINE=purpleandgreen
 
-init_docker_machine
+alias dm="docker-machine ssh $DOCKER_MACHINE"
+
+init_docker_machine $DOCKER_MACHINE
 
 source $HOME/dotfiles/ext_scripts/context/context.sh
