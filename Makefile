@@ -56,6 +56,7 @@ docker-machine:
 	sudo chown docker-user /etc/fuse.conf
 	sudo echo 'user_allow_other' >> /etc/fuse.conf
 	@# Upgrade file limits - needed for pfs server tests
+	sudo chown docker-user /etc/security/limits.conf
 	sudo echo '* soft nofile 20100' >> /etc/security/limits.conf
 	sudo echo '* hard nofile 20100' >> /etc/security/limits.conf
 	sudo echo 'session required pam_limits.so' >> /etc/pam.d/common-session
