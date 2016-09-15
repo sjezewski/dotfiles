@@ -105,6 +105,7 @@ install-shell:
 	@if [ $$(which rvm) -eq 0 ]; then\
 		echo "source $(HOME)/.rvm/scripts/rvm" >> ~/.bash_profile; \
 	fi
+	rm -rf ext_scripts || true
 	mkdir ext_scripts
 	cd ext_scripts && git clone git@github.com:sjezewski/context
 	source $$HOME/.bash_profile
