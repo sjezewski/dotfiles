@@ -73,6 +73,7 @@ docker-machine:
 pachyderm-linux:
 	wget https://storage.googleapis.com/kubernetes-release/release/v1.3.4/bin/linux/amd64/kubectl
 	chmod +x kubectl
+	sudo chown docker-user /usr/local/bin
 	mv kubectl /usr/local/bin/
 	sudo apt-get install gcc
 
@@ -94,7 +95,7 @@ gcloud:
 	sudo gcloud init
 
 install-shell:
-	@rm ~/.bash_profile
+	@rm ~/.bash_profile || true
 	@echo "source $$HOME/dotfiles/profile/.profile" >> ~/.bash_profile
 	@if [ $$(uname -a | cut -f 1 -d " ") == "Darwin" ]; then \
 		echo "source $$HOME/dotfiles/profile/.osx.sh" >> ~/.bash_profile; \
