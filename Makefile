@@ -102,7 +102,9 @@ install-shell:
 	else \
 		echo "source $$HOME/dotfiles/profile/.linux.sh" >> ~/.bash_profile; \
 	fi
-	@echo "source $(HOME)/.rvm/scripts/rvm" >> ~/.bash_profile
+	@if [ $$(which rvm) -eq 0 ]; then\
+		echo "source $(HOME)/.rvm/scripts/rvm" >> ~/.bash_profile; \
+	fi
 	mkdir ext_scripts
 	cd ext_scripts && git clone git@github.com:sjezewski/context
 	source $$HOME/.bash_profile
