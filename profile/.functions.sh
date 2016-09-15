@@ -14,14 +14,14 @@ function identity() {
 function sync_docker_machine() {
 	SSH_COMMAND="ssh -F /dev/null -o BatchMode=yes -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=no -o ControlPath=none -o IdentitiesOnly=yes -i $HOME/.docker/machine/machines/dev/id_rsa -p 22" 
 	RSYNC_FLAGS=-avzh
-    DOCKER_MACHINE_IP=`docker-machine ip dev`
-	rsync $RSYNC_FLAGS -e "$SSH_COMMAND" $1 docker-user@$DOCKER_MACHINE_IP:$2
+    DOCKER_MACHINE_IP=`docker-machine ip $1`
+	rsync $RSYNC_FLAGS -e "$SSH_COMMAND" $2 docker-user@$DOCKER_MACHINE_IP:$3
 }
 
 function dev_sync_docker_from_client() {
     if [ "$(identity)" == "client" ]
     then
-        dev_sync_docker
+        dev_sync_docker $1
     else
         echo "Can only sync from mac client -> docker machine"
     fi
@@ -31,7 +31,7 @@ function dev_sync_docker() {
     PACHYDERM_SRC="$GOPATH/src/github.com/pachyderm/pachyderm"
     DOCKER_MACHINE_HOME="/home/docker-user"
     REMOTE_PACHYDERM_SRC_DIR="$DOCKER_MACHINE_HOME/go/src/github.com/pachyderm"
-	sync_docker_machine $PACHYDERM_SRC $REMOTE_PACHYDERM_SRC_DIR
+	sync_docker_machine $1 $PACHYDERM_SRC $REMOTE_PACHYDERM_SRC_DIR
 }
 
 function start_my_day() {

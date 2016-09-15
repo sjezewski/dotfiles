@@ -10,6 +10,7 @@ export GOROOT="/usr/local/go"
 export PFX=github.com/pachyderm/pachyderm
 export PSRC="$GOPATH/src/$PFX"
 export IDENTITY="docker-server" # In the osx.sh file, set this to 'client'
+export DOCKER_MACHINE_NAME=purpleandgreen
 
 alias reinit="source $HOME/.bash_profile"
 alias profile="nvim $HOME/dotfiles/profile/.profile"
@@ -18,15 +19,13 @@ alias c="clear"
 alias klog="$HOME/dotfiles/scripts/kubetail"
 alias ci="travis_build.rb | xargs open $1"
 alias ci-latest="travis_build.rb latest | xargs open $1"
-alias dms="$HOME/dotfiles/scripts/dm-rsync.sh"
+alias dms="$HOME/dotfiles/scripts/dm-rsync.sh $DOCKER_MACHINE_NAME"
 
 source $HOME/dotfiles/profile/.functions.sh
 source $HOME/dotfiles/profile/pachyderm.sh
 
-DOCKER_MACHINE=purpleandgreen
+alias dm="docker-machine ssh $DOCKER_MACHINE_NAME"
 
-alias dm="docker-machine ssh $DOCKER_MACHINE"
-
-init_docker_machine $DOCKER_MACHINE
+init_docker_machine $DOCKER_MACHINE_NAME
 
 source $HOME/dotfiles/ext_scripts/context/context.sh
