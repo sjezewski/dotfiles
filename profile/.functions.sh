@@ -82,10 +82,6 @@ function cc() {
 
 alias sandboxportforwarding="sudo docker-machine ssh dev -fTNL 650:localhost:30650"
 
-function ctx() {
-    kubectl config use-context $1
-}
-
 function duration() {
     export STARTTIME=$(date +%s)
     $@
