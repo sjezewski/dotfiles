@@ -21,4 +21,4 @@ do
        kill $pid
 done
 
-docker-machine ssh dev $FLAGS $PORT:localhost:$PORT
+docker-machine ssh $DOCKER_MACHINE_NAME $FLAGS $PORT:localhost:$PORT

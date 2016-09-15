@@ -113,7 +113,7 @@ install-shell:
 
 osx-client: install-shell
 	brew install ssh-copy-id
-	ssh-copy-id -o BatchMode=yes -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=no -o ControlPath=none -o IdentitiesOnly=yes -i /Users/sjezewski/.docker/machine/machines/dev/id_rsa.pub -p 22 $(docker-machine ip dev)
-	bash -i -c "source $$HOME/.bash_profile && sync_docker_machine $$HOME/.docker $$DOCKER_MACHINE_HOME/"
+	ssh-copy-id -o BatchMode=yes -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=no -o ControlPath=none -o IdentitiesOnly=yes -i /Users/sjezewski/.docker/machine/machines/$(DOCKER_MACHINE_NAME)/id_rsa.pub -p 22 $(docker-machine ip $DOCKER_MACHINE_NAME)
+	bash -i -c "source $$HOME/.bash_profile && sync_docker_machine $$DOCKER_MACHINE_NAME $$HOME/.docker $$DOCKER_MACHINE_HOME/"
 
 .PHONY: docker-machine pachyderm
