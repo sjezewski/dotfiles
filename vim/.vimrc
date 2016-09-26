@@ -8,7 +8,7 @@ set clipboard=unnamed
 " Prob set filter to suffix w go
 "autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
 
-map <C-K> :!$HOME/dotfiles/scripts/dm-rsync.sh
+map <C-K> :!$HOME/dotfiles/scripts/dm-rsync.sh $DOCKER_MACHINE_NAME
 map <C-0> :GoImport
 
 set rtp+=~/.vim/bundle/Vundle.vim
