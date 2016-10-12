@@ -39,7 +39,9 @@ nvim-clean:
 	rm -rf $GOPATH/src/github.com/jstemmer/gotags || echo "DNE"
 	brew uninstall ctags || echo "DNE"
 
-docker-machine:
+docker-machine: all nvim docker-machine-prereqs install-shell docker gcloud pachyderm-linux
+
+docker-machine-prereqs:
 	sudo apt-get install software-properties-common
 	sudo add-apt-repository ppa:neovim-ppa/unstable
 	sudo apt-get update
