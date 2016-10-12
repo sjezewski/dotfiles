@@ -115,7 +115,7 @@ osx-client: install-shell
 	@# Allows ssh login without password (so that rsync works)
 	@# Basically just need to check that ~/.docker/machine/machines/yourdockermachinename/id_rsa.pub is in the remote docker machine's ~/.ssh/authorized_keys file
 	brew install ssh-copy-id
-	ssh-copy-id -o BatchMode=yes -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=no -o ControlPath=none -o IdentitiesOnly=yes -i /Users/sjezewski/.docker/machine/machines/$(DOCKER_MACHINE_NAME)/id_rsa.pub -p 22 `docker-machine ip $$DOCKER_MACHINE_NAME`
+	ssh-copy-id -o BatchMode=yes -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=no -o ControlPath=none -o IdentitiesOnly=yes -i /Users/sjezewski/.docker/machine/machines/$(DOCKER_MACHINE_NAME)/id_rsa.pub -p 22 docker-user@`docker-machine ip $$DOCKER_MACHINE_NAME`
 	@# Note .. not sure the above does anything really ... but it seemed to work better when I did docker-user@the.ip.add.ress instead of just IP as above
 
 # Puts the right keys onto the docker machine's docker-user account so that when I'm ssh'd in I can see / connect as normal to docker-machine instances

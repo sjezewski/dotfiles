@@ -99,7 +99,7 @@ function rethink-ui() {
     #        "targetPort": 0,
     #        "nodePort": 32080
     #      },
-    docker-machine ssh dev -fTNL 9989:localhost:32080
+    docker-machine ssh $DOCKER_MACHINE_NAME -fTNL 9989:localhost:32080
     open http://localhost:9989
 }
 

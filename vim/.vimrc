@@ -11,6 +11,10 @@ set clipboard=unnamed
 map <C-K> :!$HOME/dotfiles/scripts/dm-rsync.sh $DOCKER_MACHINE_NAME
 map <C-0> :GoImport
 
+" Golang specific helpers
+:so golang.vim
+
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 

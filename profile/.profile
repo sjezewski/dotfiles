@@ -10,7 +10,7 @@ export GOROOT="/usr/local/go"
 export PFX=github.com/pachyderm/pachyderm
 export PSRC="$GOPATH/src/$PFX"
 export IDENTITY="docker-server" # In the osx.sh file, set this to 'client'
-export DOCKER_MACHINE_NAME=purpleandgreen
+export DOCKER_MACHINE_NAME=jamesjamesjamesdean
 export DOCKER_MACHINE_HOME="/home/docker-user"
 
 alias reinit="source $HOME/.bash_profile"
