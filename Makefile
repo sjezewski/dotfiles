@@ -1,4 +1,3 @@
-GCLOUD_PKG = google-cloud-sdk-110.0.0-linux-x86_64
 SHELL := /bin/bash
 
 all:
@@ -39,7 +38,7 @@ nvim-clean:
 	rm -rf $GOPATH/src/github.com/jstemmer/gotags || echo "DNE"
 	brew uninstall ctags || echo "DNE"
 
-docker-machine: all docker-machine-prereqs install-shell docker gcloud pachyderm-linux
+docker-machine: all docker-machine-prereqs install-shell docker gcloud kubectl pachyderm-linux
 
 docker-machine-prereqs:
 	sudo apt-get install software-properties-common
@@ -91,11 +90,12 @@ docker:
 	sudo docker run hello-world
 
 gcloud:
-	wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$(GCLOUD_PKG).tar.gz
-	sudo tar -xvf $(GCLOUD_PKG).tar.gz
-	sudo /google_cloud_sdk/install.sh
+	curl https://sdk.cloud.google.com | bash
 	source $$HOME/.bash_profile
-	sudo gcloud init
+	gcloud init
+
+kubectl:
+	gcloud components install kubectl
 
 install-shell:
 	@rm ~/.bash_profile || true
