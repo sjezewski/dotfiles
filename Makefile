@@ -97,6 +97,17 @@ gcloud:
 kubectl:
 	sudo gcloud components install kubectl
 	sudo ln -s /usr/lib/google-cloud-sdk/bin/kubectl  /usr/local/bin/kubectl
+	@# Note!
+	@# If you're using dockerized kubernetes, you'll need to add :
+	@#	- cluster:
+	@#    server: http://localhost:8080
+	@#  name: dev-docker-machine
+	@# under clusters, and:
+	@#	- context:
+	@#    cluster: dev-docker-machine
+	@#    user: sean
+	@#  name: dev
+	@# under contexts. So that you can use the port forwarding
 
 install-shell:
 	@rm ~/.bash_profile || true
