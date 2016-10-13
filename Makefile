@@ -96,7 +96,7 @@ gcloud:
 
 kubectl:
 	sudo gcloud components install kubectl
-	sudo ln -S /usr/local/bin/kubectl /usr/lib/google-cloud-sdk/bin/kubectl 
+	sudo ln -s /usr/lib/google-cloud-sdk/bin/kubectl  /usr/local/bin/kubectl
 
 install-shell:
 	@rm ~/.bash_profile || true
