@@ -38,7 +38,7 @@ nvim-clean:
 	rm -rf $GOPATH/src/github.com/jstemmer/gotags || echo "DNE"
 	brew uninstall ctags || echo "DNE"
 
-docker-machine: all docker-machine-prereqs install-shell docker gcloud kubectl pachyderm-linux
+docker-machine: all docker-machine-prereqs install-shell gcloud kubectl pachyderm-linux
 
 docker-machine-prereqs:
 	sudo apt-get install software-properties-common
@@ -95,7 +95,8 @@ gcloud:
 	gcloud init
 
 kubectl:
-	gcloud components install kubectl
+	sudo gcloud components install kubectl
+	sudo ln -S /usr/local/bin/kubectl /usr/lib/google-cloud-sdk/bin/kubectl 
 
 install-shell:
 	@rm ~/.bash_profile || true

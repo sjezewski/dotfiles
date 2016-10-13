@@ -109,3 +109,10 @@ function grep-code() {
 }
 
 alias s="grep-code"
+
+function clean_desktop() {
+    mkdir -p $HOME/vdesktop/screenshots
+    mv $HOME/Desktop/'Screen Shot'* $HOME/vdesktop/screenshots/
+}
+
+
