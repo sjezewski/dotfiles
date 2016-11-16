@@ -115,4 +115,19 @@ function clean_desktop() {
     mv $HOME/Desktop/'Screen Shot'* $HOME/vdesktop/screenshots/
 }
 
+function plog() {
+    kubectl get all | grep "po/pachd" | grep -v "pachd-init" | cut -f 1 -d " " | xargs kubectl logs $1 --previous
+    echo "!!!!!!!!!!! RESTART BOUNDARY !!!!!!!!!!!"
+    kubectl get all | grep "po/pachd" | grep -v "pachd-init" | cut -f 1 -d " " | xargs kubectl logs $1
+}
+
+function plog-init() {
+    kubectl get all | grep "pachd-init" | cut -f 1 -d " " | xargs kubectl logs $1 --previous
+    echo "!!!!!!!!!!! RESTART BOUNDARY !!!!!!!!!!!"
+    kubectl get all | grep "pachd-init" | cut -f 1 -d " " | xargs kubectl logs $1
+}
+
+function ppod() {
+    kubectl get all | grep "po/pachd" | grep -v "pachd-init" | cut -f 1 -d " "
+}
 

@@ -50,7 +50,7 @@ docker-machine-prereqs:
 	sudo tar -xvf go1.7.linux-amd64.tar.gz
 	sudo rm -rf /usr/local/go
 	sudo mv go /usr/local
-	mkdir -p $$HOME/go
+	mkdir -p $$HOME/go/src/github.com/pachyderm
 	sudo curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > dm
 	sudo mv dm /usr/local/bin/docker-machine
 	sudo chmod +x /usr/local/bin/docker-machine
