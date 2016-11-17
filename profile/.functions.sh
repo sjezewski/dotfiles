@@ -15,7 +15,7 @@ function sync_docker_machine() {
 	SSH_COMMAND="ssh -F /dev/null -o BatchMode=yes -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=quiet -o ConnectionAttempts=3 -o ConnectTimeout=10 -o ControlMaster=no -o ControlPath=none -o IdentitiesOnly=yes -i $HOME/.docker/machine/machines/$DOCKER_MACHINE_NAME/id_rsa -p 22" 
 	RSYNC_FLAGS=-avzh
     DOCKER_MACHINE_IP=`docker-machine ip $1`
-	rsync $RSYNC_FLAGS -e "$SSH_COMMAND" $2 docker-user@$DOCKER_MACHINE_IP:$3
+	rsync $RSYNC_FLAGS --exclude '.git' -e "$SSH_COMMAND" $2 docker-user@$DOCKER_MACHINE_IP:$3
 }
 
 function dev_sync_docker_from_client() {
