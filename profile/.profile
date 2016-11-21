@@ -6,11 +6,12 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/dotfiles/scripts
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOME/google-cloud-sdk/bin/:$PATH"
 export GOROOT="/usr/local/go"
 export PFX=github.com/pachyderm/pachyderm
 export PSRC="$GOPATH/src/$PFX"
 export IDENTITY="docker-server" # In the osx.sh file, set this to 'client'
-export DOCKER_MACHINE_NAME=jamesjamesjamesdean
+export DOCKER_MACHINE_NAME=scoobymachine
 export DOCKER_MACHINE_HOME="/home/docker-user"
 
 alias reinit="source $HOME/.bash_profile"
