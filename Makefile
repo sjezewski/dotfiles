@@ -41,6 +41,7 @@ nvim-clean:
 docker-machine: all docker-machine-prereqs install-shell gcloud kubectl pachyderm-linux
 
 docker-machine-prereqs:
+	sudo apt install xcalib # so I can invert colors w xcalib -i -a
 	sudo apt-get install software-properties-common
 	sudo add-apt-repository ppa:neovim-ppa/unstable
 	sudo apt-get update
@@ -73,10 +74,6 @@ docker-machine-prereqs:
 	cd s3cmd-1.6.0 && sudo python setup.py install
 
 pachyderm-linux:
-	wget https://storage.googleapis.com/kubernetes-release/release/v1.3.4/bin/linux/amd64/kubectl
-	chmod +x kubectl
-	sudo chown docker-user /usr/local/bin
-	mv kubectl /usr/local/bin/
 	sudo apt-get install gcc
 
 pachyderm-mac:
