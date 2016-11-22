@@ -42,6 +42,7 @@ docker-machine: all docker-machine-prereqs install-shell gcloud kubectl pachyder
 
 docker-machine-prereqs:
 	sudo apt install xcalib # so I can invert colors w xcalib -i -a
+	sudo apt install xsel # for copy/paste
 	sudo apt-get install software-properties-common
 	sudo add-apt-repository ppa:neovim-ppa/unstable
 	sudo apt-get update
