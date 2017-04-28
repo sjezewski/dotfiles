@@ -128,6 +128,13 @@ function plog-init() {
 }
 
 function ppod() {
-    kubectl get all | grep "po/pachd" | grep -v "pachd-init" | cut -f 1 -d " "
+    kubectl get all | grep "po/pachd" | grep -v "pachd-init" | grep "Running" | cut -f 1 -d " "
 }
+
+function cool() {
+    # Moves the file or directory to the icebox and creates a symlink in its place
+    mv $1 $IB/cooler/$PWD
+    ln -s $IB/cooler/$PWD $1
+}
+
 
