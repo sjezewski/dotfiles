@@ -103,12 +103,19 @@ function rethink-ui() {
     open http://localhost:9989
 }
 
-
+# Helper for searching pachyderm repo
 function grep-code() {
     grep -R "$1" ./src/* | grep -v "vendor" | grep -v "~" | grep -v "#"
 }
 
 alias s="grep-code"
+
+# Helper for searching dash repo
+function grep-code-dash() {
+    grep -R "$1" ./* 2>/dev/null | grep -v node_modules | grep -v tmp | grep -v assets | grep -v bower
+}
+
+alias sd="grep-code-dash"
 
 function clean_desktop() {
     mkdir -p $HOME/vdesktop/screenshots
@@ -133,8 +140,9 @@ function ppod() {
 
 function cool() {
     # Moves the file or directory to the icebox and creates a symlink in its place
+    mkdir -p $IB/cooler/$PWD/$1
     mv $1 $IB/cooler/$PWD
-    ln -s $IB/cooler/$PWD $1
+    ln -s $IB/cooler/$PWD/$1 $1
 }
 
 
