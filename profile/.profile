@@ -29,12 +29,18 @@ alias p="cd $PSRC"
 alias d="cd $HOME/pachyderm/workspace/dash"
 alias cb="xsel --clipboard"
 alias key="cat $HOME/pachyderm/workspace/dash/paywall/customerTokens/pachydermEngineering-activation-code.txt | xsel --clipboard"
+alias token=key
 alias klog="$HOME/dotfiles/scripts/kubetail"
 alias ci="travis_build.rb | xargs open $1"
 alias ci-latest="travis_build.rb latest | xargs open $1"
 alias dms="$HOME/dotfiles/scripts/dm-rsync.sh $DOCKER_MACHINE_NAME"
 alias c="cd $HOME/pachyderm/workspace/demos"
 alias monitors="reset-monitors.sh"
+
+# notification helpers
+alias hmm="notify.sh 1"
+alias win="notify.sh 4"
+alias lose="notify.sh 3"
 
 source $HOME/dotfiles/profile/.functions.sh
 source $HOME/dotfiles/profile/pachyderm.sh
