@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+  echo "error: need the name of the docker image to push"
+fi
+
+nonedriver="$( minikube docker-env | grep -q "'none' driver does not support 'minikube docker-env' command" && echo true )"
+docker save "${1}" | pv | (\
+  if [[ "${nonedriver}" != "true" ]]; then
+    eval $(minikube docker-env)
+  fi
+  docker load
+  )
