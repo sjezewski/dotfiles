@@ -20,6 +20,14 @@ export DOCKER_MACHINE_HOME="/home/docker-user"
 export ICEBOX="/media/icebox"
 export IB=$ICEBOX
 
+# for direnv support OMG
+eval "$(direnv hook bash)"
+alias da="direnv allow"
+
+# For maven
+export M2_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+
 # For nodejs on thinkpad:
 export PATH=$PATH:$HOME/lib/node-v7.3.0-linux-x64/bin
 
@@ -27,6 +35,7 @@ alias reinit="source $HOME/.bash_profile"
 alias profile="nvim $HOME/dotfiles/profile/.profile"
 alias p="cd $PSRC"
 alias d="cd $HOME/pachyderm/workspace/dash"
+alias c="cd $HOME/pachyderm/workspace/demos"
 alias cb="xsel --clipboard"
 alias key="cat $HOME/pachyderm/workspace/dash/paywall/customerTokens/pachydermEngineering-activation-code.txt | xsel --clipboard"
 alias token=key
@@ -42,6 +51,8 @@ alias hmm="notify.sh 1"
 alias win="notify.sh 4"
 alias lose="notify.sh 3"
 
+alias vim-flush="rm -rf ~/.local/share/nvim/swap"
+
 source $HOME/dotfiles/profile/.functions.sh
 source $HOME/dotfiles/profile/pachyderm.sh
 
@@ -49,12 +60,20 @@ alias dm="docker-machine ssh $DOCKER_MACHINE_NAME"
 
 init_docker_machine $DOCKER_MACHINE_NAME
 
+alias pc="pachctl"
+alias kc="kubectl"
+# context is deprecated ... using DIRENV instead
 source $HOME/dotfiles/ext_scripts/context/context.sh
 
 # ubuntu python path:
 export PATH="$PATH:$HOME/.local/bin"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# java / junit setup
+
+export JUNIT_HOME="$HOME/lib/junit"
+export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit4.10.jar:."
 
 
 ### FOR CLIENT DEMOS
