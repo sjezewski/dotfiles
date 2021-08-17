@@ -1,4 +1,5 @@
 export PS1="\D{%y-%m-%d}[\A:\D{%S}]:\[\033[38;5;70m\]\W\[$(tput sgr0)\]\[\033[38;5;237m\]:\[$(tput sgr0)\]\[\033[38;5;203m\]\$?\[$(tput sgr0)\]\[\033[38;5;237m\]\\$\[$(tput sgr0)\]"
+export BASH_SILENCE_DEPRECATION_WARNING=1 # silence annoying zsh warning on login
 
 export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/bin:$PATH
