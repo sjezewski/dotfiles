@@ -20,6 +20,8 @@ export DOCKER_MACHINE_HOME="/home/docker-user"
 export ICEBOX="/media/icebox"
 export IB=$ICEBOX
 
+eval "$(rbenv init -)"
+
 # for direnv support OMG
 eval "$(direnv hook bash)"
 alias da="direnv allow"
@@ -32,7 +34,7 @@ export PATH=${M2_HOME}/bin:${PATH}
 export PATH=$PATH:$HOME/lib/node-v7.3.0-linux-x64/bin
 
 alias reinit="source $HOME/.bash_profile"
-alias profile="nvim $HOME/dotfiles/profile/.profile"
+alias profile="vim $HOME/dotfiles/profile/.profile"
 alias p="cd $PSRC"
 alias d="cd $HOME/pachyderm/workspace/dash"
 alias c="cd $HOME/pachyderm/workspace/demos"
@@ -45,6 +47,7 @@ alias ci-latest="travis_build.rb latest | xargs open $1"
 alias dms="$HOME/dotfiles/scripts/dm-rsync.sh $DOCKER_MACHINE_NAME"
 alias c="cd $HOME/pachyderm/workspace/demos"
 alias monitors="reset-monitors.sh"
+alias h=heroku
 
 # notification helpers
 alias hmm="notify.sh 1"
@@ -58,7 +61,7 @@ source $HOME/dotfiles/profile/pachyderm.sh
 
 alias dm="docker-machine ssh $DOCKER_MACHINE_NAME"
 
-init_docker_machine $DOCKER_MACHINE_NAME
+#init_docker_machine $DOCKER_MACHINE_NAME
 
 alias pc="pachctl"
 alias kc="kubectl"
