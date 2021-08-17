@@ -24,5 +24,6 @@ if [[ ! -z $2 ]]; then
 fi
 
 image="~/dotfiles/scripts/notify/radical-ed-$variant.png"
-notify-send -i ~/dotfiles/scripts/notify/radical-ed-$variant.png  $message
-
+# notify-send deprecated
+# notify-send -i ~/dotfiles/scripts/notify/radical-ed-$variant.png  $message
+terminal-notifier -appIcon ~/dotfiles/scripts/notify/radical-ed-$variant.png -message  $message
