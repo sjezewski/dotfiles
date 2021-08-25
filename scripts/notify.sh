@@ -24,4 +24,4 @@ if [[ ! -z $2 ]]; then
 fi
 
 image="~/dotfiles/scripts/notify/radical-ed-$variant.png"
-terminal-notifier -appIcon ~/dotfiles/scripts/notify/radical-ed-$variant.png -message  $message
+terminal-notifier -contentImage ~/dotfiles/scripts/notify/radical-ed-$variant.png -message  $message
