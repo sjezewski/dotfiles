@@ -1,3 +1,7 @@
+export PFX=github.com/pachyderm/pachyderm
+export PSRC="$GOPATH/src/$PFX"
+alias pc="pachctl"
+
 function portforwarding() {
          ps -ef | grep "docker/machine" | grep -v grep | cut -f 4 -d " " | while read -r pid
          do
