@@ -24,5 +24,6 @@ if [[ ! -z $2 ]]; then
 fi
 
 image="~/dotfiles/scripts/notify/radical-ed-$variant.png"
+# install via `brew install terminal-notify`
 notify-send -i ~/dotfiles/scripts/notify/radical-ed-$variant.png  $message
 

@@ -1,4 +1,8 @@
-export PS1="\D{%y-%m-%d}[\A:\D{%S}]:\[\033[38;5;70m\]\W\[$(tput sgr0)\]\[\033[38;5;237m\]:\[$(tput sgr0)\]\[\033[38;5;203m\]\$?\[$(tput sgr0)\]\[\033[38;5;237m\]\\$\[$(tput sgr0)\]"
+# bash prompt
+# export PS1="\D{%y-%m-%d}[\A:\D{%S}]:\[\033[38;5;70m\]\W\[$(tput sgr0)\]\[\033[38;5;237m\]:\[$(tput sgr0)\]\[\033[38;5;203m\]\$?\[$(tput sgr0)\]\[\033[38;5;237m\]\\$\[$(tput sgr0)\]"
+# zsh prompt
+PROMPT="%d[%*]:%?$"
+
 
 export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -32,7 +36,7 @@ export PATH=${M2_HOME}/bin:${PATH}
 export PATH=$PATH:$HOME/lib/node-v7.3.0-linux-x64/bin
 
 alias reinit="source $HOME/.bash_profile"
-alias profile="nvim $HOME/dotfiles/profile/.profile"
+alias profile="vim $HOME/dotfiles/profile/.profile"
 alias p="cd $PSRC"
 alias d="cd $HOME/pachyderm/workspace/dash"
 alias c="cd $HOME/pachyderm/workspace/demos"
