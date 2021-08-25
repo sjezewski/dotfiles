@@ -3,8 +3,8 @@
 # zsh prompt
 PROMPT="%d[%*]:%?$"
 
-export PATH=/usr/local/go/bin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 export GOROOT="/usr/local/go"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
@@ -12,6 +12,9 @@ export PATH=$PATH:$HOME/dotfiles/scripts
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$HOME/google-cloud-sdk/bin/:$PATH"
 export PATH="/usr/local/sbin:$PATH" #for brew
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:${PATH}"
 
 eval "$(rbenv init -)"
 eval "$(direnv hook bash)"
