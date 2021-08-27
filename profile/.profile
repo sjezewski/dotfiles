@@ -16,11 +16,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PYENV_ROOT/shims:${PATH}"
 
-eval "$(rbenv init -)"
-eval "$(direnv hook bash)"
+
 alias da="direnv allow"
 
-alias reinit="source $HOME/.bash_profile"
+alias reinit="source $HOME/.zshrc"
 alias profile="vim $HOME/dotfiles/profile/.profile"
 alias cb="xsel --clipboard"
 alias klog="$HOME/dotfiles/scripts/kubetail"
@@ -60,3 +59,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+
+alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
+
+## Initialize Helpers after script definitions
+
+eval "$(rbenv init -)"
+#eval "$(direnv hook bash)"
+eval "$(direnv hook zsh)"

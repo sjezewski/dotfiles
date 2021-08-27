@@ -1,0 +1,20 @@
+  # USAGE:
+  # aws-profile              <- print out current value
+  # aws-profile PROFILE_NAME <- set PROFILE_NAME active
+  # aws-profile --unset      <- unset the env vars
+  if [ -z "$1" ]; then
+    echo $AWS_PROFILE
+  elif [ "$1" = "--unset" ]; then
+    unset AWS_PROFILE
+    unset AWS_DEFAULT_PROFILE
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+  else
+    export AWS_PROFILE=$1
+    export AWS_DEFAULT_PROFILE=$1
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+  fi;
+
