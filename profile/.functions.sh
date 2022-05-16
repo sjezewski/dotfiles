@@ -23,6 +23,6 @@ function clean_desktop() {
     mv $HOME/Desktop/'Screen Shot'* $HOME/vdesktop/screenshots/
 }
 
-
-
-
+function split() {
+    open -a iTerm $1
+}

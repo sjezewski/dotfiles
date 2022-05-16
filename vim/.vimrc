@@ -8,23 +8,18 @@ set clipboard=unnamed
 " Prob set filter to suffix w go
 "autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
 
-map <C-K> :!$HOME/dotfiles/scripts/dm-rsync.sh $DOCKER_MACHINE_NAME
-map <C-0> :GoImport
-
 " Golang specific helpers
-:so golang.vim
+" :so golang.vim
+" map <C-0> :GoImport
 
 
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/Vundle.vim'
-
-" My Bundles here:
-"
-" original repos on github
+" Add plugins here
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'johnsyweb/vim-makeshift.git'
@@ -33,15 +28,34 @@ Plugin 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'majutsushi/tagbar'
-" vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
 " non github repos
 Bundle 'fatih/vim-go'
-" ...
-"
-call vundle#end()            " required
-filetype plugin indent on    " required!
+
+call vundle#end()
+filetype plugin indent on
+
+" couldnt get fzf working w vundle ... trying vim-plug instead
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+" aliases for fzf
+":Files (PWD)
+":Buffers
+":Lines "in loaded buffers
+":BLines "in current buffer
+":Ag "search withing files
+
+"noremap ,
+:nmap <C-f> :Files  .<CR>
+:nmap <C-b> :Buffers<CR>
+:nmap <C-l> :Lines<CR>
+:nmap <C-bl> :BLines<CR>
+:nmap <C-x> :Ag<CR>
+
+":nmap <C-x> :Ag --ignore={'*node_modules', '*site-packages'}<CR>
+
 
 colors pablo
 let mapleader = ","
@@ -62,25 +76,10 @@ set switchbuf=usetab
 
 au FileType make setl noet
 
-"set nocp
-"filetype plugin on
 
 
-hi ShowMarksHLl guifg=red guibg=green
-hi ShowMarksHLu guifg=red guibg=green
-hi ShowMarksHLo guifg=red guibg=green
-hi ShowMarksHLm guifg=red guibg=green
-
-noremap <C-b> :TlistToggle<CR>
-
-:ab #i #include
-:ab #d #define
-:ab consterator const_iterator
-
-
-" PROBLEM BELOW HERE
 "noremap <leader>f :let @"=@%<CR>
-"
+
 "let g:fuf_modesDisable = []
 "let g:fuf_mrufile_maxItem = 400
 "let g:fuf_mrucmd_maxItem = 400
@@ -127,78 +126,5 @@ noremap <C-b> :TlistToggle<CR>
 "nnoremap <silent> <special> <C-\>r     :FufRenewCache<CR>
 
 
-"" RSI (stands for "retained surgical instruments")
-"au FileType cpp,c syn keyword cTodo RSI
-"com RSI grep '\<RSI\>' **/*
-"
-"match Todo /\s\+$/
 
-"syntax match cpp 'std_contains' conceal cchar=∋
-"
-"func! WordProcessorMode()
-"  setlocal formatoptions=t1
-"  setlocal textwidth=80
-"  map j gj
-"  map k gk
-"  setlocal smartindent
-"  setlocal spell spelllang=en_us
-"  setlocal noexpandtab
-"endfu
-"com! WP call WordProcessorMode()
-"
-"set ruler
-"au BufRead,BufNewFile *.elm set filetype=elm
-"
-"let g:haddock_browser="/usr/bin/lynx"
-"
-"set rtp+=$GOROOT/misc/vim
-"filetype plugin indent on
-"syntax on
-"
-" last change VV
-"
-"au FileType go nmap <leader>t <Plug>(go-test)
-"
-"
-"let g:tagbar_type_go = {  
-"    \ 'ctagstype' : 'go',
-"    \ 'kinds'     : [
-"        \ 'p:package',
-"        \ 'i:imports:1',
-"        \ 'c:constants',
-"        \ 'v:variables',
-"        \ 't:types',
-"        \ 'n:interfaces',
-"        \ 'w:fields',
-"        \ 'e:embedded',
-"        \ 'm:methods',
-"        \ 'r:constructor',
-"        \ 'f:functions'
-"    \ ],
-"    \ 'sro' : '.',
-"    \ 'kind2scope' : {
-"        \ 't' : 'ctype',
-"        \ 'n' : 'ntype'
-"    \ },
-"    \ 'scope2kind' : {
-"        \ 'ctype' : 't',
-"        \ 'ntype' : 'n'
-"    \ },
-"    \ 'ctagsbin'  : 'gotags',
-"    \ 'ctagsargs' : '-sort -silent'
-"\ }
 
-" latest change VV
-"nmap <M-CR> :TagbarToggle<CR>
-"
-"" neocomplete needs lua, which needs vim > 7.3.5, and neovim doesnt support lua yet
-"" let g:neocomplete#enable_at_startup = 1
-"
-"map <C><CR> :w<CR>
-"
-"map <C-[> :tabp
-"map <C-]> :tabn
-"
-"set ic
-
-colorscheme desert
