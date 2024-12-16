@@ -5,6 +5,14 @@ filetype off                   " required
 
 set clipboard=unnamed
 
+" https://github.com/ngmy/vim-rubocop
+let g:vimrubocop_config = '$HOME/.dotfiles/vim/rubocop.yml'
+" https://serverfault.com/questions/157879/vim-trigger-action-script-on-save-write
+" too many errors on callerzen to do this on save
+":autocmd BufWritePost *.rb Rubocop <afile>
+":autocmd BufWritePost *.rb Rubocop %p
+
+
 " Prob set filter to suffix w go
 "autocmd BufWritePost * execute '!$HOME/dotfiles/scripts/dm-rsync.sh'
 
@@ -15,29 +23,30 @@ set clipboard=unnamed
 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-
-" Add plugins here
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'johnsyweb/vim-makeshift.git'
-Bundle 'mattn/emmet-vim'
-Plugin 'mileszs/ack.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'majutsushi/tagbar'
-" non github repos
-Bundle 'fatih/vim-go'
-
-call vundle#end()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"
+"" Add plugins here
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'johnsyweb/vim-makeshift.git'
+"Bundle 'mattn/emmet-vim'
+"Plugin 'mileszs/ack.vim'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'Shougo/neocomplete.vim'
+"Bundle 'majutsushi/tagbar'
+"" non github repos
+"Bundle 'fatih/vim-go'
+"
+"call vundle#end()
 filetype plugin indent on
 
 " couldnt get fzf working w vundle ... trying vim-plug instead
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ngmy/vim-rubocop'
 call plug#end()
 
 " aliases for fzf

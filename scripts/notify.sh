@@ -23,5 +23,5 @@ if [[ ! -z $2 ]]; then
     message=$2
 fi
 
-image="~/dotfiles/scripts/notify/radical-ed-$variant.png"
-terminal-notifier -contentImage ~/dotfiles/scripts/notify/radical-ed-$variant.png -message  $message
+image="~/.dotfiles/scripts/notify/radical-ed-$variant.png"
+terminal-notifier -contentImage ~/.dotfiles/scripts/notify/radical-ed-$variant.png -message  $message

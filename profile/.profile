@@ -2,6 +2,7 @@
 # export PS1="\D{%y-%m-%d}[\A:\D{%S}]:\[\033[38;5;70m\]\W\[$(tput sgr0)\]\[\033[38;5;237m\]:\[$(tput sgr0)\]\[\033[38;5;203m\]\$?\[$(tput sgr0)\]\[\033[38;5;237m\]\\$\[$(tput sgr0)\]"
 # zsh prompt
 PROMPT="%1d[%*]:%?$"
+PROMPT='foo'
 
 export PATH=$HOME/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -9,7 +10,7 @@ export PATH=/usr/local/go/bin:$PATH
 export GOROOT="/usr/local/go"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/dotfiles/scripts
+export PATH=$PATH:$HOME/.dotfiles/scripts
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="$HOME/google-cloud-sdk/bin/:$PATH"
 export PATH="/usr/local/sbin:$PATH" #for brew
@@ -20,10 +21,10 @@ export PATH="$PATH:$HOME/scripts"
 
 alias da="direnv allow"
 
-alias reinit="source $HOME/.zshrc"
-alias profile="vim $HOME/dotfiles/profile/.profile"
+alias reinit="source $HOME/.zshenv"
+alias profile="vim $HOME/.dotfiles/profile/.profile"
 alias cb="xsel --clipboard"
-alias klog="$HOME/dotfiles/scripts/kubetail"
+alias klog="$HOME/.dotfiles/scripts/kubetail"
 alias ci="travis_build.rb | xargs open $1"
 alias ci-latest="travis_build.rb latest | xargs open $1"
 alias monitors="reset-monitors.sh"
@@ -45,7 +46,10 @@ alias hmm="notify.sh 1"
 alias win="notify.sh 4"
 alias lose="notify.sh 3"
 
-source $HOME/dotfiles/profile/.functions.sh
+# iu/zome stuff
+export PATH=${PATH}:$HOME/workspace/iubrach/bin
+
+source $HOME/.dotfiles/profile/.functions.sh
 
 # java / junit setup
 export JUNIT_HOME="$HOME/lib/junit"
@@ -63,7 +67,7 @@ export PATH="$PATH:/usr/local/cuda-8.0/bin"
 eval "$(pipenv --completion)"
 
 # JOB SPECIFIC
-# source $HOME/dotfiles/profile/pachyderm.sh
+# source $HOME/.dotfiles/profile/pachyderm.sh
 
 
 # Digital Artefacts
