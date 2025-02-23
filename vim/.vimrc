@@ -4,9 +4,10 @@ set nocompatible               " be iMproved
 filetype off                   " required
 
 set clipboard=unnamed
+color desert
 
 " https://github.com/ngmy/vim-rubocop
-let g:vimrubocop_config = '$HOME/.dotfiles/vim/rubocop.yml'
+"let g:vimrubocop_config = '$HOME/.dotfiles/vim/rubocop.yml'
 " https://serverfault.com/questions/157879/vim-trigger-action-script-on-save-write
 " too many errors on callerzen to do this on save
 ":autocmd BufWritePost *.rb Rubocop <afile>
@@ -43,6 +44,12 @@ filetype off
 filetype plugin indent on
 
 " couldnt get fzf working w vundle ... trying vim-plug instead
+" to install:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" then in vim:
+" :PlugInstall
+
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'

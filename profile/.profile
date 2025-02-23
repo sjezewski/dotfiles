@@ -2,7 +2,6 @@
 # export PS1="\D{%y-%m-%d}[\A:\D{%S}]:\[\033[38;5;70m\]\W\[$(tput sgr0)\]\[\033[38;5;237m\]:\[$(tput sgr0)\]\[\033[38;5;203m\]\$?\[$(tput sgr0)\]\[\033[38;5;237m\]\\$\[$(tput sgr0)\]"
 # zsh prompt
 PROMPT="%1d[%*]:%?$"
-PROMPT='foo'
 
 export PATH=$HOME/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -21,7 +20,7 @@ export PATH="$PATH:$HOME/scripts"
 
 alias da="direnv allow"
 
-alias reinit="source $HOME/.zshenv"
+alias reinit="source $HOME/.zshrc"
 alias profile="vim $HOME/.dotfiles/profile/.profile"
 alias cb="xsel --clipboard"
 alias klog="$HOME/.dotfiles/scripts/kubetail"
@@ -64,7 +63,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu" #to get libc
 export PATH="$PATH:/usr/local/cuda-8.0/bin"
 
 # python
-eval "$(pipenv --completion)"
+#eval "$(pipenv --completion)"
 
 # JOB SPECIFIC
 # source $HOME/.dotfiles/profile/pachyderm.sh
@@ -92,6 +91,8 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 
 ## Initialize Helpers after script definitions
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 #eval "$(direnv hook bash)"
 eval "$(direnv hook zsh)"
+
+

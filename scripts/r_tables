@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+def list
+  File.read("db/schema.rb").split("\n").each do |line|
+    if line.match('create_table')
+      name = line.match('create_table \"(.*)\",(.*)').captures[0]
+      puts name
+    end
+  end
+end
+
+def info(table)
+  lines = []
+  chunk = nil
+  File.read("db/schema.rb").split("\n").each do |line|
+    if line.match('create_table')
+      name = line.match('create_table \"(.*)\",(.*)').captures[0]
+      next unless name == table
+      chunk = true
+    end
+
+    if chunk && line.match("end")
+      break
+    end
+
+    lines << line if chunk
+  end
+
+  puts lines.join("\n")
+end
+
+table = ARGV[0]
+
+if table.nil?
+  list
+  exit 0
+end
+
+info(table)
